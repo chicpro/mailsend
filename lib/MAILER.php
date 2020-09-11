@@ -12,15 +12,18 @@ class MAILER extends PHPMailer
     {
         parent::__construct($exceptions);
 
-        $this->IsSMTP();
-        $this->Host = CM_SMTP_HOST;
-        $this->Port = CM_SMTP_PORT;
+        if (CM_SMTP_USE === true) {
+            $this->isSMTP();
 
-        $this->Username   = CM_SMTP_USER;
-        $this->Password   = CM_SMTP_PASS;
-        $this->SMTPSecure = CM_SMTP_SECURE;
+            $this->Host = CM_SMTP_HOST;
+            $this->Port = CM_SMTP_PORT;
 
-        $this->SMTPAuth   = CM_SMTP_AUTH;
+            $this->Username   = CM_SMTP_USER;
+            $this->Password   = CM_SMTP_PASS;
+            $this->SMTPSecure = CM_SMTP_SECURE;
+
+            $this->SMTPAuth   = CM_SMTP_AUTH;
+        }
 
         if (CM_SMTP_DEBUG === true) {
             $this->SMTPDebug = 2;

@@ -1,5 +1,6 @@
 <?php
 // PHPMailer SMTP
+define('CM_SMTP_USE',    false);
 define('CM_SMTP_HOST',   'smtp.server.com');
 define('CM_SMTP_PORT',   '587');
 define('CM_SMTP_AUTH',   true);
